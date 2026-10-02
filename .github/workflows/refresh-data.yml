@@ -1,0 +1,27 @@
+name: Refresh TWSE data
+on:
+  schedule:
+    - cron: '0 7 * * 1-5'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download latest TWSE market data
+        run: |
+          curl --fail --silent --show-error --location 'https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX' --output data.json
+          python -m json.tool data.json > /dev/null
+      - name: Commit updated data
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data.json
+          if git diff --cached --quiet; then
+            echo 'No data changes.'
+          else
+            git commit -m 'Refresh daily TWSE market data'
+            git push
+          fi
