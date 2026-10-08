@@ -12,43 +12,107 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Download latest TWSE market data
+      - name: Download TWSE market and listed-stock data
         run: |
-          curl --fail --silent --show-error --location 'https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX' --output latest.json
-          python -m json.tool latest.json > /dev/null
-      - name: Keep the newest available market date
+          curl --fail --silent --show-error --location 'https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX' --output latest-index.json
+          curl --fail --silent --show-error --location 'https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL' --output latest-stocks.json
+          curl --fail --silent --show-error --location 'https://openapi.twse.com.tw/v1/opendata/t187ap03_L' --output listed-companies.json
+          python -m json.tool latest-index.json > /dev/null
+          python -m json.tool latest-stocks.json > /dev/null
+          python -m json.tool listed-companies.json > /dev/null
+      - name: Keep the newest available market date and build stock rankings
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
 
-          latest_path = Path("latest.json")
-          latest = json.loads(latest_path.read_text(encoding="utf-8"))
-          if not isinstance(latest, list) or not latest:
-              raise SystemExit("TWSE API returned no market rows.")
-          latest_date = str(latest[0].get("日期", ""))
-          if not latest_date:
-              raise SystemExit("TWSE API response has no market date.")
+          def load(path):
+              return json.loads(Path(path).read_text(encoding="utf-8"))
+
+          market = load("latest-index.json")
+          stocks = load("latest-stocks.json")
+          companies = load("listed-companies.json")
+          if not isinstance(market, list) or not market:
+              raise SystemExit("TWSE index API returned no rows.")
+          if not isinstance(stocks, list) or not stocks:
+              raise SystemExit("TWSE listed-stock API returned no rows.")
+          if not isinstance(companies, list) or not companies:
+              raise SystemExit("TWSE listed-company API returned no rows.")
+
+          market_date = str(market[0].get("日期", ""))
+          if not market_date:
+              raise SystemExit("TWSE index response has no market date.")
 
           current_path = Path("data.json")
           if current_path.exists():
-              current = json.loads(current_path.read_text(encoding="utf-8"))
+              current = load("data.json")
               current_date = str(current[0].get("日期", "")) if current else ""
-              if current_date and latest_date < current_date:
-                  print(f"Keeping existing {current_date}; API still returns older {latest_date}.")
+              if current_date and market_date < current_date:
+                  print(f"Keeping existing {current_date}; TWSE still returns older {market_date}.")
                   raise SystemExit(0)
 
-          current_path.write_text(json.dumps(latest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-          print(f"Prepared TWSE market data for {latest_date}.")
+          def first(row, *keys):
+              for key in keys:
+                  value = row.get(key)
+                  if value is not None and str(value).strip():
+                      return value
+              return ""
+
+          def number(value):
+              text = str(value).replace(",", "").strip()
+              if not text or text in {"--", "－", "-"}:
+                  raise ValueError("missing numeric value")
+              return float(text)
+
+          company_codes = {
+              str(first(row, "公司代號", "CompanyCode", "Code")).strip()
+              for row in companies
+          }
+          movers = []
+          for row in stocks:
+              code = str(first(row, "Code", "證券代號", "公司代號")).strip()
+              if not code or code not in company_codes:
+                  continue
+              try:
+                  close = number(first(row, "ClosingPrice", "收盤價"))
+                  raw_change = str(first(row, "Change", "漲跌價差")).strip()
+                  if not raw_change or raw_change.startswith(("X", "x")):
+                      continue
+                  change = number(raw_change)
+                  previous = close - change
+                  volume = int(number(first(row, "TradeVolume", "成交股數")))
+                  if close <= 0 or previous <= 0 or volume <= 0:
+                      continue
+                  change_pct = change / previous * 100
+              except (ValueError, TypeError):
+                  continue
+              movers.append({
+                  "code": code,
+                  "name": str(first(row, "Name", "證券名稱")),
+                  "close": round(close, 2),
+                  "change": round(change, 2),
+                  "changePct": round(change_pct, 4),
+                  "volume": volume
+              })
+
+          gainers = sorted((x for x in movers if x["changePct"] > 0), key=lambda x: x["changePct"], reverse=True)[:5]
+          losers = sorted((x for x in movers if x["changePct"] < 0), key=lambda x: x["changePct"])[:5]
+          if not gainers and not losers:
+              raise SystemExit("No valid listed-stock movers were calculated.")
+
+          Path("data.json").write_text(json.dumps(market, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          ranking = {"date": market_date, "gainers": gainers, "losers": losers}
+          Path("stock-rankings.json").write_text(json.dumps(ranking, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          print(f"Prepared {market_date}: {len(gainers)} gainers, {len(losers)} losers.")
           PY
-      - name: Commit updated data
+      - name: Commit updated market data
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data.json
+          git add data.json stock-rankings.json
           if git diff --cached --quiet; then
             echo 'No data changes.'
           else
-            git commit -m 'Refresh latest TWSE market data'
+            git commit -m 'Refresh TWSE market and stock movers'
             git push
           fi
