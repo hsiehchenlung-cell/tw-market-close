@@ -10,11 +10,12 @@ permissions:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
       - name: Download TWSE market and listed-stock data
         run: |
-          curl --fail --silent --show-error --location 'https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX' --output latest-index.json
+          curl --fail --silent --show-error --location --connect-timeout 15 --max-time 90 --retry 1 --retry-delay 2 'https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX' --output latest-index.json
           curl --fail --silent --show-error --location 'https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL' --output latest-stocks.json
           curl --fail --silent --show-error --location 'https://openapi.twse.com.tw/v1/opendata/t187ap03_L' --output listed-companies.json
           python -m json.tool latest-index.json > /dev/null
