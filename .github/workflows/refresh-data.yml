@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: '0 7 * * 1-5'
+    - cron: '17 7-17 * * 1-5'
   workflow_dispatch:
 permissions:
   contents: write
@@ -14,8 +14,33 @@ jobs:
       - uses: actions/checkout@v4
       - name: Download latest TWSE market data
         run: |
-          curl --fail --silent --show-error --location 'https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX' --output data.json
-          python -m json.tool data.json > /dev/null
+          curl --fail --silent --show-error --location 'https://openapi.twse.com.tw/v1/exchangeReport/MI_INDEX' --output latest.json
+          python -m json.tool latest.json > /dev/null
+      - name: Keep the newest available market date
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          latest_path = Path("latest.json")
+          latest = json.loads(latest_path.read_text(encoding="utf-8"))
+          if not isinstance(latest, list) or not latest:
+              raise SystemExit("TWSE API returned no market rows.")
+          latest_date = str(latest[0].get("日期", ""))
+          if not latest_date:
+              raise SystemExit("TWSE API response has no market date.")
+
+          current_path = Path("data.json")
+          if current_path.exists():
+              current = json.loads(current_path.read_text(encoding="utf-8"))
+              current_date = str(current[0].get("日期", "")) if current else ""
+              if current_date and latest_date < current_date:
+                  print(f"Keeping existing {current_date}; API still returns older {latest_date}.")
+                  raise SystemExit(0)
+
+          current_path.write_text(json.dumps(latest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+          print(f"Prepared TWSE market data for {latest_date}.")
+          PY
       - name: Commit updated data
         run: |
           git config user.name 'github-actions[bot]'
@@ -24,6 +49,6 @@ jobs:
           if git diff --cached --quiet; then
             echo 'No data changes.'
           else
-            git commit -m 'Refresh daily TWSE market data'
+            git commit -m 'Refresh latest TWSE market data'
             git push
           fi
