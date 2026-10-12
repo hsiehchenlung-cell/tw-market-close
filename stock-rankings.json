@@ -1,87 +1,87 @@
 {
-  "date": "1151008",
+  "date": "1151012",
   "gainers": [
     {
-      "code": "2424",
-      "name": "隴華",
-      "close": 9.79,
-      "change": 0.89,
+      "code": "1516",
+      "name": "川飛",
+      "close": 15.4,
+      "change": 1.4,
       "changePct": 10.0,
-      "volume": 90511
+      "volume": 181654
     },
     {
-      "code": "3447",
-      "name": "展達",
-      "close": 30.25,
-      "change": 2.75,
+      "code": "2429",
+      "name": "銘旺科",
+      "close": 33.0,
+      "change": 3.0,
       "changePct": 10.0,
-      "volume": 675327
+      "volume": 1110014
     },
     {
-      "code": "2466",
-      "name": "冠西電",
-      "close": 198.5,
-      "change": 18.0,
-      "changePct": 9.9723,
-      "volume": 1622066
+      "code": "6909",
+      "name": "創控",
+      "close": 47.85,
+      "change": 4.35,
+      "changePct": 10.0,
+      "volume": 863512
     },
     {
-      "code": "4934",
-      "name": "太極",
-      "close": 17.1,
-      "change": 1.55,
-      "changePct": 9.9678,
-      "volume": 4681151
+      "code": "3008",
+      "name": "大立光",
+      "close": 7325.0,
+      "change": 665.0,
+      "changePct": 9.985,
+      "volume": 5911983
     },
     {
-      "code": "9103",
-      "name": "美德醫療-DR",
-      "close": 5.88,
-      "change": 0.53,
-      "changePct": 9.9065,
-      "volume": 7803349
+      "code": "2468",
+      "name": "華經",
+      "close": 44.7,
+      "change": 4.05,
+      "changePct": 9.9631,
+      "volume": 6046149
     }
   ],
   "losers": [
     {
-      "code": "2059",
-      "name": "川湖",
-      "close": 10615.0,
-      "change": -1175.0,
-      "changePct": -9.9661,
-      "volume": 2003115
+      "code": "2030",
+      "name": "彰源",
+      "close": 32.0,
+      "change": -3.55,
+      "changePct": -9.9859,
+      "volume": 4213233
     },
     {
-      "code": "9929",
-      "name": "秋雨",
-      "close": 11.3,
-      "change": -1.25,
-      "changePct": -9.9602,
-      "volume": 245358
+      "code": "3055",
+      "name": "蔚華科",
+      "close": 201.0,
+      "change": -22.0,
+      "changePct": -9.8655,
+      "volume": 803263
     },
     {
-      "code": "7788",
-      "name": "松川精密",
-      "close": 305.0,
-      "change": -24.0,
-      "changePct": -7.2948,
-      "volume": 3369555
+      "code": "9110",
+      "name": "越南控-DR",
+      "close": 3.11,
+      "change": -0.34,
+      "changePct": -9.8551,
+      "volume": 113000
     },
     {
-      "code": "7749",
-      "name": "意騰-KY",
-      "close": 364.0,
-      "change": -27.0,
-      "changePct": -6.9054,
-      "volume": 619116
+      "code": "6743",
+      "name": "安普新",
+      "close": 32.35,
+      "change": -3.15,
+      "changePct": -8.8732,
+      "volume": 1400766
     },
     {
-      "code": "3016",
-      "name": "嘉晶",
-      "close": 183.5,
-      "change": -11.5,
-      "changePct": -5.8974,
-      "volume": 6352536
+      "code": "3593",
+      "name": "力銘",
+      "close": 10.65,
+      "change": -0.95,
+      "changePct": -8.1897,
+      "volume": 3190
     }
   ]
 }
