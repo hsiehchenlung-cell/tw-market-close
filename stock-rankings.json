@@ -1,87 +1,87 @@
 {
-  "date": "1151016",
+  "date": "1151019",
   "gainers": [
+    {
+      "code": "1526",
+      "name": "日馳",
+      "close": 16.5,
+      "change": 1.5,
+      "changePct": 10.0,
+      "volume": 1056949
+    },
     {
       "code": "6756",
       "name": "威鋒電子",
-      "close": 110.0,
-      "change": 10.0,
+      "close": 121.0,
+      "change": 11.0,
       "changePct": 10.0,
-      "volume": 938233
+      "volume": 2265551
     },
     {
-      "code": "6933",
-      "name": "AMAX-KY",
-      "close": 451.5,
-      "change": 41.0,
-      "changePct": 9.9878,
-      "volume": 2066435
+      "code": "6141",
+      "name": "柏承",
+      "close": 58.4,
+      "change": 5.3,
+      "changePct": 9.9812,
+      "volume": 5523003
     },
     {
-      "code": "6689",
-      "name": "伊雲谷",
-      "close": 70.5,
-      "change": 6.4,
-      "changePct": 9.9844,
-      "volume": 1287208
+      "code": "4960",
+      "name": "誠美材",
+      "close": 27.8,
+      "change": 2.5,
+      "changePct": 9.8814,
+      "volume": 19184659
     },
     {
-      "code": "6668",
-      "name": "中揚光",
-      "close": 68.3,
-      "change": 6.2,
-      "changePct": 9.9839,
-      "volume": 12160579
-    },
-    {
-      "code": "3701",
-      "name": "大眾控",
-      "close": 66.1,
-      "change": 6.0,
-      "changePct": 9.9834,
-      "volume": 6388938
+      "code": "2033",
+      "name": "佳大",
+      "close": 65.7,
+      "change": 5.9,
+      "changePct": 9.8662,
+      "volume": 8061565
     }
   ],
   "losers": [
     {
-      "code": "2851",
-      "name": "中再保",
-      "close": 49.05,
-      "change": -4.15,
-      "changePct": -7.8008,
-      "volume": 5531610
+      "code": "6933",
+      "name": "AMAX-KY",
+      "close": 406.5,
+      "change": -45.0,
+      "changePct": -9.9668,
+      "volume": 6226818
     },
     {
-      "code": "1709",
-      "name": "和益",
-      "close": 54.9,
-      "change": -3.9,
-      "changePct": -6.6327,
-      "volume": 40385075
+      "code": "6668",
+      "name": "中揚光",
+      "close": 61.5,
+      "change": -6.8,
+      "changePct": -9.9561,
+      "volume": 10923291
     },
     {
-      "code": "2478",
-      "name": "大毅",
-      "close": 133.0,
-      "change": -9.0,
-      "changePct": -6.338,
-      "volume": 27824004
+      "code": "7835",
+      "name": "永悅健康-創",
+      "close": 19.4,
+      "change": -2.1,
+      "changePct": -9.7674,
+      "volume": 73600
     },
     {
-      "code": "7795",
-      "name": "長廣",
-      "close": 456.0,
-      "change": -30.5,
-      "changePct": -6.2693,
-      "volume": 1453566
+      "code": "3026",
+      "name": "禾伸堂",
+      "close": 735.0,
+      "change": -71.0,
+      "changePct": -8.8089,
+      "volume": 11797221
     },
     {
-      "code": "6715",
-      "name": "嘉基",
-      "close": 500.0,
-      "change": -33.0,
-      "changePct": -6.1914,
-      "volume": 4142172
+      "code": "6994",
+      "name": "富威電力",
+      "close": 24.6,
+      "change": -2.35,
+      "changePct": -8.7199,
+      "volume": 1118934
     }
   ]
 }
