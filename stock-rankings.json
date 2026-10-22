@@ -1,87 +1,87 @@
 {
-  "date": "1151020",
+  "date": "1151021",
   "gainers": [
     {
-      "code": "6695",
-      "name": "芯鼎",
-      "close": 56.1,
-      "change": 5.1,
+      "code": "4770",
+      "name": "上品",
+      "close": 313.5,
+      "change": 28.5,
       "changePct": 10.0,
-      "volume": 3023070
+      "volume": 5804316
     },
     {
-      "code": "6269",
-      "name": "台郡",
-      "close": 88.3,
-      "change": 8.0,
-      "changePct": 9.9626,
-      "volume": 31667759
+      "code": "6672",
+      "name": "騰輝電子-KY",
+      "close": 627.0,
+      "change": 57.0,
+      "changePct": 10.0,
+      "volume": 1244841
     },
     {
-      "code": "6994",
-      "name": "富威電力",
-      "close": 27.05,
-      "change": 2.45,
-      "changePct": 9.9593,
-      "volume": 773983
+      "code": "3229",
+      "name": "晟鈦",
+      "close": 52.9,
+      "change": 4.8,
+      "changePct": 9.9792,
+      "volume": 780471
     },
     {
-      "code": "1709",
-      "name": "和益",
-      "close": 56.5,
-      "change": 5.1,
-      "changePct": 9.9222,
-      "volume": 26787925
+      "code": "7730",
+      "name": "暉盛-創",
+      "close": 220.5,
+      "change": 20.0,
+      "changePct": 9.9751,
+      "volume": 362345
     },
     {
-      "code": "4720",
-      "name": "德淵",
-      "close": 26.6,
-      "change": 2.4,
-      "changePct": 9.9174,
-      "volume": 10937804
+      "code": "4526",
+      "name": "東台",
+      "close": 38.05,
+      "change": 3.45,
+      "changePct": 9.9711,
+      "volume": 10869645
     }
   ],
   "losers": [
     {
-      "code": "7835",
-      "name": "永悅健康-創",
-      "close": 17.55,
-      "change": -1.85,
-      "changePct": -9.5361,
-      "volume": 149000
+      "code": "6141",
+      "name": "柏承",
+      "close": 53.8,
+      "change": -5.9,
+      "changePct": -9.8827,
+      "volume": 7936480
     },
     {
-      "code": "6505",
-      "name": "台塑化",
-      "close": 106.5,
-      "change": -9.5,
-      "changePct": -8.1897,
-      "volume": 52915196
+      "code": "2345",
+      "name": "智邦",
+      "close": 1815.0,
+      "change": -155.0,
+      "changePct": -7.868,
+      "volume": 7776595
     },
     {
-      "code": "2923",
-      "name": "鼎固-KY",
-      "close": 24.55,
-      "change": -2.05,
-      "changePct": -7.7068,
-      "volume": 205400
+      "code": "5906",
+      "name": "台南-KY",
+      "close": 36.7,
+      "change": -3.1,
+      "changePct": -7.7889,
+      "volume": 1539
     },
     {
-      "code": "3701",
-      "name": "大眾控",
-      "close": 58.4,
-      "change": -4.8,
-      "changePct": -7.5949,
-      "volume": 11556391
+      "code": "6467",
+      "name": "泰合",
+      "close": 187.0,
+      "change": -13.0,
+      "changePct": -6.5,
+      "volume": 1207854
     },
     {
-      "code": "6957",
-      "name": "裕慶-KY",
-      "close": 465.0,
-      "change": -36.0,
-      "changePct": -7.1856,
-      "volume": 1251285
+      "code": "9136",
+      "name": "巨騰-DR",
+      "close": 8.38,
+      "change": -0.39,
+      "changePct": -4.447,
+      "volume": 276394
     }
   ]
 }
