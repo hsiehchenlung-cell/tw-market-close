@@ -64,7 +64,7 @@ jobs:
           recent = [{"date": date, "close": close} for date, close in sorted(history.items())[-7:]]
           if len(recent) < 7:
               raise SystemExit(f"TWSE returned only {len(recent)} TAIEX sessions; refusing to publish an incomplete chart.")
-          Path("index-history.json").write_text(json.dumps(recent, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+          Path("index-history.json").write_text(json.dumps(recent, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
           print(f"Prepared TAIEX history from {recent[0]['date']} through {recent[-1]['date']}.")
           PY
       - name: Keep the newest available market date and build stock rankings
