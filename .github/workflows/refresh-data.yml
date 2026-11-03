@@ -21,6 +21,52 @@ jobs:
           python -m json.tool latest-index.json > /dev/null
           python -m json.tool latest-stocks.json > /dev/null
           python -m json.tool listed-companies.json > /dev/null
+      - name: Download recent TAIEX history
+        run: |
+          read current_month previous_month <<< "$(python3 - <<'PY'
+          from datetime import datetime
+          from zoneinfo import ZoneInfo
+          now = datetime.now(ZoneInfo("Asia/Taipei"))
+          year, month = now.year, now.month
+          prev_year, prev_month = (year - 1, 12) if month == 1 else (year, month - 1)
+          print(f"{year}{month:02d}01 {prev_year}{prev_month:02d}01")
+          PY
+          )"
+          curl --fail --silent --show-error --location --connect-timeout 15 --max-time 90 --retry 1 --retry-delay 2 "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=$current_month&response=json" --output index-history-current.json
+          sleep 3
+          curl --fail --silent --show-error --location --connect-timeout 15 --max-time 90 --retry 1 --retry-delay 2 "https://www.twse.com.tw/rwd/zh/TAIEX/MI_5MINS_HIST?date=$previous_month&response=json" --output index-history-previous.json
+          python -m json.tool index-history-current.json > /dev/null
+          python -m json.tool index-history-previous.json > /dev/null
+      - name: Build seven-session TAIEX history
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          history = {}
+          for path in ("index-history-previous.json", "index-history-current.json"):
+              payload = json.loads(Path(path).read_text(encoding="utf-8"))
+              for row in payload.get("data", []):
+                  if len(row) < 5:
+                      continue
+                  parts = str(row[0]).split("/")
+                  if len(parts) != 3:
+                      continue
+                  year = int(parts[0]) + 1911
+                  date = f"{year:04d}-{int(parts[1]):02d}-{int(parts[2]):02d}"
+                  try:
+                      close = float(str(row[4]).replace(",", "").strip())
+                  except ValueError:
+                      continue
+                  if close > 0:
+                      history[date] = close
+
+          recent = [{"date": date, "close": close} for date, close in sorted(history.items())[-7:]]
+          if len(recent) < 7:
+              raise SystemExit(f"TWSE returned only {len(recent)} TAIEX sessions; refusing to publish an incomplete chart.")
+          Path("index-history.json").write_text(json.dumps(recent, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+          print(f"Prepared TAIEX history from {recent[0]['date']} through {recent[-1]['date']}.")
+          PY
       - name: Keep the newest available market date and build stock rankings
         run: |
           python - <<'PY'
@@ -110,7 +156,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data.json stock-rankings.json
+          git add data.json stock-rankings.json index-history.json
           if git diff --cached --quiet; then
             echo 'No data changes.'
           else
