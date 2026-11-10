@@ -1,87 +1,87 @@
 {
-  "date": "1151106",
+  "date": "1151109",
   "gainers": [
     {
-      "code": "6152",
-      "name": "百一",
-      "close": 18.7,
-      "change": 1.7,
+      "code": "2464",
+      "name": "盟立",
+      "close": 148.5,
+      "change": 13.5,
       "changePct": 10.0,
-      "volume": 7774916
+      "volume": 2154769
     },
     {
-      "code": "6443",
-      "name": "元晶",
-      "close": 25.95,
-      "change": 2.35,
-      "changePct": 9.9576,
-      "volume": 40744486
+      "code": "2486",
+      "name": "一詮",
+      "close": 159.5,
+      "change": 14.5,
+      "changePct": 10.0,
+      "volume": 3190268
     },
     {
-      "code": "3686",
-      "name": "達能",
-      "close": 13.95,
-      "change": 1.25,
-      "changePct": 9.8425,
-      "volume": 448735
+      "code": "4770",
+      "name": "上品",
+      "close": 286.0,
+      "change": 26.0,
+      "changePct": 10.0,
+      "volume": 644674
     },
     {
-      "code": "1416",
-      "name": "廣豐",
-      "close": 16.35,
-      "change": 1.45,
-      "changePct": 9.7315,
-      "volume": 19360132
+      "code": "4916",
+      "name": "事欣科",
+      "close": 91.3,
+      "change": 8.3,
+      "changePct": 10.0,
+      "volume": 1268489
     },
     {
-      "code": "6947",
-      "name": "台鎔科技",
-      "close": 62.1,
-      "change": 5.5,
-      "changePct": 9.7173,
-      "volume": 665317
+      "code": "6215",
+      "name": "和椿",
+      "close": 77.0,
+      "change": 7.0,
+      "changePct": 10.0,
+      "volume": 353794
     }
   ],
   "losers": [
     {
-      "code": "3321",
-      "name": "同泰",
-      "close": 18.0,
-      "change": -2.0,
+      "code": "4771",
+      "name": "望隼",
+      "close": 180.0,
+      "change": -20.0,
       "changePct": -10.0,
-      "volume": 1045801
+      "volume": 1446881
     },
     {
-      "code": "6756",
-      "name": "威鋒電子",
-      "close": 97.2,
-      "change": -10.8,
-      "changePct": -10.0,
-      "volume": 1013349
+      "code": "2923",
+      "name": "鼎固-KY",
+      "close": 28.3,
+      "change": -3.1,
+      "changePct": -9.8726,
+      "volume": 225680
     },
     {
-      "code": "6944",
-      "name": "兆聯實業",
-      "close": 603.0,
-      "change": -67.0,
-      "changePct": -10.0,
-      "volume": 932399
+      "code": "3605",
+      "name": "宏致",
+      "close": 117.5,
+      "change": -12.5,
+      "changePct": -9.6154,
+      "volume": 23849570
     },
     {
-      "code": "3653",
-      "name": "健策",
-      "close": 5225.0,
-      "change": -580.0,
-      "changePct": -9.9914,
-      "volume": 1621697
+      "code": "6152",
+      "name": "百一",
+      "close": 16.95,
+      "change": -1.75,
+      "changePct": -9.3583,
+      "volume": 9054197
     },
     {
-      "code": "7740",
-      "name": "熙特爾-創",
-      "close": 88.3,
-      "change": -9.8,
-      "changePct": -9.9898,
-      "volume": 148929
+      "code": "5225",
+      "name": "東科-KY",
+      "close": 43.95,
+      "change": -4.0,
+      "changePct": -8.342,
+      "volume": 864348
     }
   ]
 }
