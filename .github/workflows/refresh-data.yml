@@ -142,6 +142,37 @@ jobs:
                   "volume": volume
               })
 
+          etf_names = {"0050": "元大台灣50", "0056": "元大高股息", "00878": "國泰永續高股息"}
+          etf_items = []
+          for row in stocks:
+              code = str(first(row, "Code", "證券代號", "公司代號")).strip()
+              if code not in etf_names:
+                  continue
+              try:
+                  close = number(first(row, "ClosingPrice", "收盤價"))
+                  raw_change = str(first(row, "Change", "漲跌價差")).strip()
+                  if not raw_change or raw_change.startswith(("X", "x")):
+                      continue
+                  change = number(raw_change)
+                  previous = close - change
+                  if close <= 0 or previous <= 0:
+                      continue
+                  etf_items.append({
+                      "code": code,
+                      "name": etf_names[code],
+                      "close": round(close, 2),
+                      "change": round(change, 2),
+                      "changePct": round(change / previous * 100, 4)
+                  })
+              except (ValueError, TypeError):
+                  continue
+          if len(etf_items) == len(etf_names):
+              etf_payload = {"date": market_date, "items": sorted(etf_items, key=lambda x: x["code"])}
+              Path("etf-data.json").write_text(json.dumps(etf_payload, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+              print(f"Prepared ETF quotes for {market_date}: " + ", ".join(x["code"] for x in etf_payload["items"]))
+          else:
+              print(f"ETF quote refresh incomplete ({len(etf_items)}/{len(etf_names)}); keeping existing ETF data.")
+
           gainers = sorted((x for x in movers if x["changePct"] > 0), key=lambda x: x["changePct"], reverse=True)[:5]
           losers = sorted((x for x in movers if x["changePct"] < 0), key=lambda x: x["changePct"])[:5]
           if not gainers and not losers:
@@ -156,7 +187,7 @@ jobs:
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add data.json stock-rankings.json index-history.json
+          git add data.json stock-rankings.json index-history.json etf-data.json
           if git diff --cached --quiet; then
             echo 'No data changes.'
           else
