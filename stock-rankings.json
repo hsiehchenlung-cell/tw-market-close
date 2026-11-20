@@ -1,87 +1,87 @@
 {
-  "date": "1151119",
+  "date": "1151120",
   "gainers": [
     {
-      "code": "2923",
-      "name": "鼎固-KY",
-      "close": 34.95,
-      "change": 3.15,
-      "changePct": 9.9057,
-      "volume": 460691
+      "code": "6614",
+      "name": "資拓宏宇",
+      "close": 40.7,
+      "change": 3.7,
+      "changePct": 10.0,
+      "volume": 1796925
     },
     {
-      "code": "6782",
-      "name": "視陽",
-      "close": 290.5,
-      "change": 24.0,
-      "changePct": 9.0056,
-      "volume": 2160595
+      "code": "2471",
+      "name": "資通",
+      "close": 62.8,
+      "change": 5.7,
+      "changePct": 9.9825,
+      "volume": 23101850
     },
     {
-      "code": "4807",
-      "name": "日成-KY",
-      "close": 37.0,
-      "change": 2.5,
-      "changePct": 7.2464,
-      "volume": 782112
+      "code": "7765",
+      "name": "中華資安",
+      "close": 294.5,
+      "change": 26.5,
+      "changePct": 9.8881,
+      "volume": 8577705
     },
     {
-      "code": "8908",
-      "name": "欣雄",
-      "close": 41.2,
-      "change": 2.15,
-      "changePct": 5.5058,
-      "volume": 182835
+      "code": "2468",
+      "name": "華經",
+      "close": 69.1,
+      "change": 6.2,
+      "changePct": 9.8569,
+      "volume": 88706129
     },
     {
-      "code": "5546",
-      "name": "永固-KY",
-      "close": 11.7,
-      "change": 0.55,
-      "changePct": 4.9327,
-      "volume": 82949
+      "code": "2477",
+      "name": "美隆電",
+      "close": 21.3,
+      "change": 1.1,
+      "changePct": 5.4455,
+      "volume": 227410
     }
   ],
   "losers": [
     {
-      "code": "2485",
-      "name": "兆赫",
-      "close": 26.55,
-      "change": -2.95,
+      "code": "2308",
+      "name": "台達電",
+      "close": 900.0,
+      "change": -100.0,
       "changePct": -10.0,
-      "volume": 3532943
+      "volume": 20355632
     },
     {
-      "code": "2911",
-      "name": "麗嬰房",
-      "close": 5.22,
-      "change": -0.58,
+      "code": "2360",
+      "name": "致茂",
+      "close": 927.0,
+      "change": -103.0,
       "changePct": -10.0,
-      "volume": 252439
+      "volume": 1767998
     },
     {
-      "code": "3406",
-      "name": "玉晶光",
-      "close": 720.0,
-      "change": -80.0,
+      "code": "2368",
+      "name": "金像電",
+      "close": 711.0,
+      "change": -79.0,
       "changePct": -10.0,
-      "volume": 3488396
+      "volume": 3623221
     },
     {
-      "code": "3535",
-      "name": "晶彩科",
-      "close": 59.4,
-      "change": -6.6,
+      "code": "2413",
+      "name": "環科",
+      "close": 43.2,
+      "change": -4.8,
       "changePct": -10.0,
-      "volume": 1103894
+      "volume": 1883054
     },
     {
-      "code": "3593",
-      "name": "力銘",
-      "close": 7.74,
-      "change": -0.86,
+      "code": "2449",
+      "name": "京元電子",
+      "close": 157.5,
+      "change": -17.5,
       "changePct": -10.0,
-      "volume": 20000
+      "volume": 15122609
     }
   ]
 }
