@@ -1,87 +1,87 @@
 {
-  "date": "1151123",
+  "date": "1151124",
   "gainers": [
     {
-      "code": "2308",
-      "name": "台達電",
-      "close": 990.0,
-      "change": 90.0,
+      "code": "1435",
+      "name": "中福",
+      "close": 18.15,
+      "change": 1.65,
       "changePct": 10.0,
-      "volume": 31464403
+      "volume": 14007
     },
     {
-      "code": "2454",
-      "name": "聯發科",
-      "close": 3685.0,
-      "change": 335.0,
+      "code": "1519",
+      "name": "華城",
+      "close": 467.5,
+      "change": 42.5,
       "changePct": 10.0,
-      "volume": 18691134
+      "volume": 205448
     },
     {
-      "code": "3419",
-      "name": "譁裕",
-      "close": 8.8,
-      "change": 0.8,
+      "code": "1717",
+      "name": "長興",
+      "close": 55.0,
+      "change": 5.0,
       "changePct": 10.0,
-      "volume": 263627
+      "volume": 1161453
     },
     {
-      "code": "3665",
-      "name": "貿聯-KY",
-      "close": 1430.0,
-      "change": 130.0,
+      "code": "2305",
+      "name": "全友",
+      "close": 32.45,
+      "change": 2.95,
       "changePct": 10.0,
-      "volume": 4327818
+      "volume": 314581
     },
     {
-      "code": "4739",
-      "name": "康普",
-      "close": 64.9,
-      "change": 5.9,
+      "code": "2327",
+      "name": "國巨*",
+      "close": 341.0,
+      "change": 31.0,
       "changePct": 10.0,
-      "volume": 1353573
+      "volume": 2649078
     }
   ],
   "losers": [
     {
-      "code": "2923",
-      "name": "鼎固-KY",
-      "close": 28.35,
-      "change": -3.15,
-      "changePct": -10.0,
-      "volume": 354648
-    },
-    {
-      "code": "5906",
-      "name": "台南-KY",
-      "close": 32.4,
-      "change": -3.6,
-      "changePct": -10.0,
-      "volume": 22750
+      "code": "2466",
+      "name": "冠西電",
+      "close": 383.0,
+      "change": -42.5,
+      "changePct": -9.9882,
+      "volume": 9399674
     },
     {
       "code": "7827",
       "name": "漢康-KY創",
-      "close": 87.5,
-      "change": -9.7,
-      "changePct": -9.9794,
-      "volume": 173119
+      "close": 78.8,
+      "change": -8.7,
+      "changePct": -9.9429,
+      "volume": 2154578
+    },
+    {
+      "code": "3593",
+      "name": "力銘",
+      "close": 5.66,
+      "change": -0.62,
+      "changePct": -9.8726,
+      "volume": 62765
     },
     {
       "code": "2314",
       "name": "台揚",
-      "close": 2.89,
-      "change": -0.32,
-      "changePct": -9.9688,
-      "volume": 129202
+      "close": 2.61,
+      "change": -0.28,
+      "changePct": -9.6886,
+      "volume": 242559
     },
     {
-      "code": "3040",
-      "name": "遠見",
-      "close": 21.75,
-      "change": -2.4,
-      "changePct": -9.9379,
-      "volume": 1620232
+      "code": "6614",
+      "name": "資拓宏宇",
+      "close": 42.55,
+      "change": -2.2,
+      "changePct": -4.9162,
+      "volume": 7859186
     }
   ]
 }
