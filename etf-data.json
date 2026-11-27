@@ -1,26 +1,26 @@
 {
-  "date": "1151125",
+  "date": "1151126",
   "items": [
     {
       "code": "0050",
       "name": "元大台灣50",
-      "close": 90.3,
-      "change": -5.4,
-      "changePct": -5.6426
+      "close": 92.85,
+      "change": 2.55,
+      "changePct": 2.8239
     },
     {
       "code": "0056",
       "name": "元大高股息",
-      "close": 45.66,
-      "change": -4.28,
-      "changePct": -8.5703
+      "close": 47.49,
+      "change": 1.83,
+      "changePct": 4.0079
     },
     {
       "code": "00878",
       "name": "國泰永續高股息",
-      "close": 28.6,
-      "change": -2.21,
-      "changePct": -7.173
+      "close": 29.52,
+      "change": 0.92,
+      "changePct": 3.2168
     }
   ]
 }\n
